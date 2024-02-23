@@ -20,6 +20,9 @@ const SchemaPage = () => {
     ]);
   };
 
+  const deleteSchemaItem = (index: number) => {
+    setSchemaItems(schemaItems.filter((_, i) => i !== index));
+  };
   const updateSchemaItem = (
     index: number,
     field: keyof ISchemaItem,
@@ -118,6 +121,13 @@ const SchemaPage = () => {
               placeholder="描述"
               className="p-2 rounded-md flex-grow"
             />
+            <button
+              type="button"
+              onClick={() => deleteSchemaItem(index)}
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+            >
+              刪除
+            </button>
           </div>
         ))}
         <button
